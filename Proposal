@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Valentine 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffd6e8, #ffeef5);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.9);
+      padding: 30px 25px;
+      border-radius: 18px;
+      text-align: center;
+      width: 90%;
+      max-width: 380px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      margin-top: 25px;
+      position: relative;
+      height: 60px;
+    }
+
+    button {
+      padding: 12px 22px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    #yes {
+      background: #ff4d79;
+      color: white;
+    }
+
+    #no {
+      background: #e0e0e0;
+      position: absolute;
+    }
+
+    .yay {
+      display: none;
+      font-size: 22px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="questionBox">
+    <h1>Nisha,<br>will you be my Valentine? 💘</h1>
+
+    <div class="buttons">
+      <button id="yes">YES 💖</button>
+      <button id="no">NO</button>
+    </div>
+  </div>
+
+  <div class="card yay" id="yayBox">
+    💖 <b>YAY!!!</b><br><br>
+    Best decision ever 😍😘<br><br>
+    I love you ❤️
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const questionBox = document.getElementById("questionBox");
+    const yayBox = document.getElementById("yayBox");
+
+    function moveNoButton() {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 120 - 60;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    // Desktop hover
+    noBtn.addEventListener("mouseenter", moveNoButton);
+
+    // Mobile touch
+    noBtn.addEventListener("touchstart", moveNoButton);
+
+    yesBtn.addEventListener("click", () => {
+      questionBox.style.display = "none";
+      yayBox.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
